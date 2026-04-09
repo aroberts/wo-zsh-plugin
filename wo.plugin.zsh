@@ -1,3 +1,6 @@
+# Ensure _wo completion is discoverable
+fpath=("${0:A:h}" $fpath)
+
 wo () {
   local -a targets
   targets=("${(@s/:/)${ZSH_WO_PATHS:-$HOME}}")
@@ -23,3 +26,8 @@ wo () {
     done
   fi
 }
+
+# Register completion if compinit already ran
+if (( $+functions[compdef] )); then
+  compdef _wo wo
+fi

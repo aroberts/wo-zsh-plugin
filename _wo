@@ -1,11 +1,15 @@
 #compdef wo
 #autoload
 
-## for whatever reason, when I migrated to a new machine, this completion did
-## not work until i ran `antigen apply` manually in an interactive session.
-## Noting for posterity
-local -a cmds=( ${(uf)"$( wo )"} )
+local -a targets
+targets=("${(@s/:/)${ZSH_WO_PATHS:-$HOME}}")
 
-compadd -M 'm:{a-zA-Z}={A-Za-z}' -a cmds
-
-
+for t in $targets; do
+  [[ -d $t ]] || continue
+  local label=${t/#$HOME/\~}
+  local -a group=()
+  for dir in "$t"/*/(N:t); do
+    group+=("$dir")
+  done
+  (( ${#group} )) && compadd -M 'm:{a-zA-Z}={A-Za-z}' -V "$label" -X $'%{\e[2m%}'"-- ${label}"$'%{\e[0m%}' -a group
+done

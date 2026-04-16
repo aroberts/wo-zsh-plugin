@@ -29,14 +29,14 @@ The plugin supports:
 
 Add to your `.antigenrc`:
 ```zsh
-antigen bundle aroberts/wo-zsh-plugin
+antigen bundle aroberts/zsh-wo-plugin
 ```
 
 ### Using Oh-My-Zsh
 
 Clone this repository into `~/.oh-my-zsh/custom/plugins/wo`:
 ```zsh
-git clone https://github.com/aroberts/wo-zsh-plugin ~/.oh-my-zsh/custom/plugins/wo
+git clone https://github.com/aroberts/zsh-wo-plugin ~/.oh-my-zsh/custom/plugins/wo
 ```
 
 Then add `wo` to your plugins array in `.zshrc`:
@@ -49,11 +49,11 @@ plugins=(... wo)
 1. Clone this repository
 2. Add the plugin directory to your `fpath` in `.zshrc`:
    ```zsh
-   fpath=(/path/to/wo-zsh-plugin $fpath)
+   fpath=(/path/to/zsh-wo-plugin $fpath)
    ```
 3. Source the plugin:
    ```zsh
-   source /path/to/wo-zsh-plugin/wo.plugin.zsh
+   source /path/to/zsh-wo-plugin/wo.plugin.zsh
    ```
 
 ## Configuration

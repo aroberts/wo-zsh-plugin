@@ -11,5 +11,5 @@ for t in $targets; do
   for dir in "$t"/*/(N:t); do
     group+=("$dir")
   done
-  (( ${#group} )) && compadd -M 'm:{a-zA-Z}={A-Za-z}' -V "$label" -X $'%{\e[2m%}'"-- ${label}"$'%{\e[0m%}' -a group
+  (( ${#group} )) && compadd -M 'm:{a-z}={A-Z}' -V "$label" -X $'%{\e[2m%}'"-- ${label}"$'%{\e[0m%}' -a group
 done
